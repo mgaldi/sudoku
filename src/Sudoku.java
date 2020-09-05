@@ -12,7 +12,7 @@ public class Sudoku {
 
 
         Sudoku sudoku = new Sudoku();
-        // sudoku.enterBoard();
+        sudoku.enterBoard();
         if (sudoku.fillBoard()) {
             System.out.println("Sudoku solved");
             sudoku.printBoard();
