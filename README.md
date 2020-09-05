@@ -10,7 +10,8 @@ The public fillBoard function which returns a boolean and takes no parameters in
 The isSafe function which returns a boolean and takes as parameters the row, the column and the number to assign, checks if the cell at position row,col has no other number equal to num horizontally, vertically, and in the 3x3 sub-board.
 The printBoard function which returns void and takes no parameters, is used to print the whole board.
 
-<b> Complexity </b>
+<b> Complexity</b>
+
 In terms of space complexity, the most signifcant variable is the 2D array used for the board with complexity O(n^2). The other space is used is less significant than n^2.
 
 Time complexity for the function enterBoard and isSafe is O(n^2)
