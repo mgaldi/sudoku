@@ -32,14 +32,14 @@ Usually some cells are already occupied. Let's assume `x` cells are occupied. Th
 ```
 m = n - x
 T(m) = m^3 + 9T(m-1)
-|Recursive Call |Tree 						|Operations |	
-|				|	  						|			|
-|T(m)			|m^3						|m^3		| 1   = 9^0
-|T(m-1)			|(m-1)^3 + (m-1)^3	[9TIMES]|m^3		| 9	  = 9^1
-|				|(m-2)^3 + (m-2)^3	[9TIMES]|m^3		| 81  = 9^2
-														  .
-														  .
-														  .	  = 9^m
+|Recursive Call |Tree 						|Operations 	|	
+|		|	 					|		|
+|T(m)		|m^3						|m^3       	| 1   = 9^0
+|T(m-1)		|(m-1)^3 + (m-1)^3	[9TIMES]		|m^3		| 9   = 9^1
+|		|(m-2)^3 + (m-2)^3	[9TIMES]		|m^3		| 81  = 9^2
+										  .
+										  .
+										  .   = 9^m
 ```
 
 Time complexity for the function `fillBoard` is `O(n^m)`, where `m` is the number of unoccupied cells. 
