@@ -8,30 +8,17 @@ public class Sudoku {
 
     private static int[][] board;
 
-    public static void main(String[] args) {
-
-
-        Sudoku sudoku = new Sudoku();
-        sudoku.enterBoard();
-        if (sudoku.fillBoard()) {
-            System.out.println("Sudoku solved");
-            sudoku.printBoard();
-        } else {
-            System.out.println("Sudoku not solved");
-        }
-    }
-
-
     private void enterBoard() {
         board = new int[BOARD_SIZE][BOARD_SIZE];
         Scanner in = new Scanner(System.in);
         for (int i = 0; i < BOARD_SIZE; i++) {
-            System.out.printf("Enter numbers for row n.%d:", (i + 1));
+            System.out.printf("Enter numbers for row n. %d: ", (i + 1));
             String input = in.nextLine();
             String[] splitInput = input.split("\\s+");
             for (int j = 0; j < BOARD_SIZE; j++)
                 board[i][j] = Integer.parseInt(splitInput[j]);
         }
+        in.close();
     }
 
     public boolean fillBoard() {
@@ -52,14 +39,13 @@ public class Sudoku {
                     }
                     return false;
                 }
-                // if the end of the row is reached the second loop in the method
-                // should begin from 0 instead of the value of the 'col' argument
-                if (j == BOARD_SIZE - 1)
-                    col = 0;
             }
+            // when the end of the row is reached the variable 'col' is set to 0
+            // in order to start iterating from the first element of the next row
+            // (the variable 'col' is used in the second 'for' cycle in the method)
+            col = 0;
         }
         return true;
-
     }
 
     private boolean isSafe(int row, int col, int num) {
@@ -84,6 +70,17 @@ public class Sudoku {
     private void printBoard() {
         for (int[] row : board)
             System.out.println(Arrays.toString(row));
+    }
+
+    public static void main(String[] args) {
+        Sudoku sudoku = new Sudoku();
+        sudoku.enterBoard();
+        if (sudoku.fillBoard()) {
+            System.out.println("Sudoku solved");
+            sudoku.printBoard();
+        } else {
+            System.out.println("Sudoku not solved");
+        }
     }
 
 }
